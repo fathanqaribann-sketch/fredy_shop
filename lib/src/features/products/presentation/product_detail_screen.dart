@@ -52,7 +52,7 @@ class ProductDetailScreen extends StatelessWidget {
                   // Product Name
                   Text(
                     product.name,
-                    style: textTheme.headlineMedium?.copyWith(
+                    style: textTheme.headlineMedium!.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -60,7 +60,7 @@ class ProductDetailScreen extends StatelessWidget {
                   // Product Price
                   Text(
                     '\$${product.price.toStringAsFixed(2)}',
-                    style: textTheme.headlineSmall?.copyWith(
+                    style: textTheme.headlineSmall!.copyWith(
                       color: colorScheme.primary,
                       fontWeight: FontWeight.w600,
                     ),
@@ -85,7 +85,7 @@ class ProductDetailScreen extends StatelessWidget {
           label: const Text('Add to Cart'),
           style: ElevatedButton.styleFrom(
             padding: const EdgeInsets.symmetric(vertical: 16),
-            textStyle: textTheme.titleMedium?.copyWith(
+            textStyle: textTheme.titleMedium!.copyWith(
               fontWeight: FontWeight.bold,
             ),
           ),
