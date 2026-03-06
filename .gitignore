@@ -1,17 +1,17 @@
-# Flutter/Dart specific
+# Dart & Flutter
 .dart_tool/
 .flutter-plugins
 .flutter-plugins-dependencies
 .pub-cache/
 .pub/
-
-# Ignore build directory
-/build/
-
-# But DO NOT ignore the release APK inside the build directory
+build/
 !/build/app/outputs/flutter-apk/app-release.apk
 
-# IDE files
+# Logs
+*.log
+firebase-debug.log
+
+# IDE-specific
 .idea/
 .vscode/
 *.iml
