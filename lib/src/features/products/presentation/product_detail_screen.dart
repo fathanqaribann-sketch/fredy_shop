@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
+import 'package:myapp/src/features/cart/application/cart_provider.dart';
 import 'package:myapp/src/features/products/domain/product.dart';
+import 'package:provider/provider.dart';
 
 class ProductDetailScreen extends StatelessWidget {
   final Product product;
@@ -88,9 +90,16 @@ class ProductDetailScreen extends StatelessWidget {
             ),
           ),
           onPressed: () {
-            // TODO: Implement Add to Cart logic
+            // Add the product to the cart
+            final cart = Provider.of<CartProvider>(context, listen: false);
+            cart.add(product);
+
+            // Show a confirmation snackbar
             ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('${product.name} added to cart!')),
+              SnackBar(
+                content: Text('${product.name} added to cart!'),
+                duration: const Duration(seconds: 2),
+              ),
             );
           },
         ),
