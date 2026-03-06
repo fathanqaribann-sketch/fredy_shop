@@ -1,9 +1,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:myapp/src/data/dummy_products.dart';
 import 'package:myapp/src/features/authentication/presentation/login_screen.dart';
 import 'package:myapp/src/features/cart/presentation/cart_screen.dart';
 import 'package:myapp/src/features/home/presentation/home_screen.dart';
+import 'package:myapp/src/features/products/domain/product.dart';
+import 'package:myapp/src/features/products/presentation/product_detail_screen.dart';
 
 final GoRouter router = GoRouter(
   routes: <GoRoute>[
@@ -14,15 +17,34 @@ final GoRouter router = GoRouter(
       },
     ),
     GoRoute(
-      path: '/home',
-      builder: (BuildContext context, GoRouterState state) {
-        return const HomeScreen();
-      },
-    ),
+        path: '/home',
+        builder: (BuildContext context, GoRouterState state) {
+          return const HomeScreen();
+        }),
     GoRoute(
       path: '/cart',
       builder: (BuildContext context, GoRouterState state) {
         return const CartScreen();
+      },
+    ),
+    GoRoute(
+      path: '/product/:id',
+      builder: (BuildContext context, GoRouterState state) {
+        final String productId = state.pathParameters['id']!;
+        final Product? product = dummyProducts.firstWhere(
+          (p) => p.id == productId,
+        );
+
+        if (product != null) {
+          return ProductDetailScreen(product: product);
+        } else {
+          // Handle the case where the product is not found, e.g., show a 404 screen
+          return const Scaffold(
+            body: Center(
+              child: Text('Product not found!'),
+            ),
+          );
+        }
       },
     ),
   ],
