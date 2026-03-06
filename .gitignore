@@ -1,0 +1,39 @@
+
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+
+# IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Visual Studio Code
+.vscode/
+
+# Flutter/Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+!/build/app/outputs/flutter-apk/app-release.apk
+
+# Web
+.cache/
+dist/
+npm_modules/
+
+# Other
+**/ios/Flutter/App.framework
+**/ios/Flutter/pod_install_log.sh
+.metadata
