@@ -24,7 +24,7 @@ class ProductCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.1),
+              color: Colors.black.withAlpha(26), // Replaced withOpacity
               blurRadius: 10,
               offset: const Offset(0, 5),
             ),
@@ -64,7 +64,7 @@ class ProductCard extends StatelessWidget {
                       end: Alignment.bottomCenter,
                       colors: [
                         Colors.transparent,
-                        Colors.black.withOpacity(0.8),
+                        Colors.black.withAlpha(204), // Replaced withOpacity
                       ],
                       stops: const [0.5, 1.0], // Gradient starts lower
                     ),
@@ -89,7 +89,7 @@ class ProductCard extends StatelessWidget {
                           children: [
                             Text(
                               product.name,
-                              style: textTheme.titleMedium?.copyWith(
+                              style: textTheme.titleMedium!.copyWith(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -99,7 +99,7 @@ class ProductCard extends StatelessWidget {
                             const SizedBox(height: 4),
                             Text(
                               '\$${product.price.toStringAsFixed(2)}',
-                              style: textTheme.bodyLarge?.copyWith(
+                              style: textTheme.bodyLarge!.copyWith(
                                 color: colorScheme.primary.withAlpha(220),
                                 fontWeight: FontWeight.w600,
                               ),
