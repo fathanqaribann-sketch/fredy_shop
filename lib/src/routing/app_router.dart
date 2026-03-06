@@ -31,14 +31,11 @@ final GoRouter router = GoRouter(
       path: '/product/:id',
       builder: (BuildContext context, GoRouterState state) {
         final String productId = state.pathParameters['id']!;
-        final Product? product = dummyProducts.firstWhere(
-          (p) => p.id == productId,
-        );
-
-        if (product != null) {
+        try {
+          final Product product = dummyProducts.firstWhere((p) => p.id == productId);
           return ProductDetailScreen(product: product);
-        } else {
-          // Handle the case where the product is not found, e.g., show a 404 screen
+        } catch (e) {
+          // If firstWhere throws an error (product not found), show a not found screen.
           return const Scaffold(
             body: Center(
               child: Text('Product not found!'),
